@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+    <EntitySetMapping Name="Adminstrators">
+      <EntityTypeMapping TypeName="TestModel.Adminstrator">
+        <MappingFragment StoreEntitySet="Adminstrator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="TestModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TestModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Credit_crad" ColumnName="Credit_crad" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imgs">
+      <EntityTypeMapping TypeName="TestModel.img">
+        <MappingFragment StoreEntitySet="img">
+          <ScalarProperty Name="img1" ColumnName="img" />
+          <ScalarProperty Name="img_id" ColumnName="img_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phone_dataset2">
+      <EntityTypeMapping TypeName="TestModel.phone_dataset2">
+        <MappingFragment StoreEntitySet="phone_dataset2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="GPRS" ColumnName="GPRS" />
+          <ScalarProperty Name="availabality" ColumnName="availabality" />
+          <ScalarProperty Name="weight_g" ColumnName="weight_g" />
+          <ScalarProperty Name="SIM" ColumnName="SIM" />
+          <ScalarProperty Name="display_type" ColumnName="display_type" />
+          <ScalarProperty Name="display_resolution" ColumnName="display_resolution" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="CPU" ColumnName="CPU" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="memory_card" ColumnName="memory card" />
+          <ScalarProperty Name="internal_memory" ColumnName="internal_memory" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="primary_camera" ColumnName="primary_camera" />
+          <ScalarProperty Name="secondary_camera" ColumnName="secondary_camera" />
+          <ScalarProperty Name="sensors" ColumnName="sensors" />
+          <ScalarProperty Name="battery" ColumnName="battery" />
+          <ScalarProperty Name="colors" ColumnName="colors" />
+          <ScalarProperty Name="approx_price_EGP" ColumnName="approx_price_EGP" />
+          <ScalarProperty Name="Id_company" ColumnName="Id_company" />
+          <ScalarProperty Name="img_id" ColumnName="img_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="TestModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Id_Expert" ColumnName="Id_Expert" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id_company" ColumnName="Id_company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="TestModel.Favorite">
+        <MappingFragment StoreEntitySet="Favorite">
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Of_Product">
+      <EntityTypeMapping TypeName="TestModel.Order_Of_Product">
+        <MappingFragment StoreEntitySet="Order_Of_Product">
+          <ScalarProperty Name="Id_customer" ColumnName="Id_customer" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Count_Of_Product" ColumnName="Count_Of_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

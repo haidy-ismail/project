@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="telephoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adminstrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckOut1">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ID_Order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Credit_Card" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id_Company" />
+    </Key>
+    <Property Name="Id_Company" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Credit_crad" Type="nchar" MaxLength="16" Nullable="false" />
+    <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="ProId" />
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ProId" Type="int" Nullable="false" />
+    <Property Name="ID_Order" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProId" />
+    </Key>
+    <Property Name="brand" Type="nvarchar" MaxLength="450" />
+    <Property Name="model" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPRS" Type="nvarchar" MaxLength="450" />
+    <Property Name="availabality" Type="nvarchar" MaxLength="450" />
+    <Property Name="weight_g" Type="nvarchar" MaxLength="450" />
+    <Property Name="SIM" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_type" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_resolution" Type="nvarchar" MaxLength="450" />
+    <Property Name="OS" Type="nvarchar" MaxLength="450" />
+    <Property Name="CPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="memory card" Type="nvarchar" MaxLength="450" />
+    <Property Name="internal_memory" Type="nvarchar" MaxLength="450" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="450" />
+    <Property Name="primary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="secondary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="sensors" Type="nvarchar" MaxLength="450" />
+    <Property Name="battery" Type="nvarchar" MaxLength="450" />
+    <Property Name="colors" Type="nvarchar" MaxLength="450" />
+    <Property Name="approx_price_EGP" Type="nvarchar" MaxLength="450" />
+    <Property Name="img" Type="varchar(max)" />
+    <Property Name="ProId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductOfCompany">
+    <Key>
+      <PropertyRef Name="Id_Of_Product" />
+    </Key>
+    <Property Name="Id_Of_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand" Type="nvarchar" MaxLength="450" />
+    <Property Name="model" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPRS" Type="nvarchar" MaxLength="450" />
+    <Property Name="availabality" Type="nvarchar" MaxLength="450" />
+    <Property Name="weight_g" Type="nvarchar" MaxLength="450" />
+    <Property Name="SIM" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_type" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_resolution" Type="nvarchar" MaxLength="450" />
+    <Property Name="OS" Type="nvarchar" MaxLength="450" />
+    <Property Name="CPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="memory card" Type="nvarchar" MaxLength="450" />
+    <Property Name="internal_memory" Type="nvarchar" MaxLength="450" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="450" />
+    <Property Name="primary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="secondary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="sensors" Type="nvarchar" MaxLength="450" />
+    <Property Name="battery" Type="nvarchar" MaxLength="450" />
+    <Property Name="colors" Type="nvarchar" MaxLength="450" />
+    <Property Name="approx_price_EGP" Type="nvarchar" MaxLength="450" />
+    <Property Name="img" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id_Expert" />
+    </Key>
+    <Property Name="Id_Expert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Id_company" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Services__Id_com__1FCDBCEB">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_CheckOut1">
+    <End Role="CheckOut1" Type="Self.CheckOut1" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckOut1">
+        <PropertyRef Name="ID_Order" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ID_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProId" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="telephoneModelStoreContainer">
+    <EntitySet Name="Adminstrator" EntityType="Self.Adminstrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CheckOut1" EntityType="Self.CheckOut1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductOfCompany" EntityType="Self.ProductOfCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Services__Id_com__1FCDBCEB" Association="Self.FK__Services__Id_com__1FCDBCEB">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_CheckOut1" Association="Self.FK_OrderDetails_CheckOut1">
+      <End Role="CheckOut1" EntitySet="CheckOut1" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Product" Association="Self.FK_OrderDetails_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

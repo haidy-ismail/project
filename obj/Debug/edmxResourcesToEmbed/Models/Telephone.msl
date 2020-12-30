@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="telephoneModelStoreContainer" CdmEntityContainer="telephoneEntities">
+    <EntitySetMapping Name="Adminstrator">
+      <EntityTypeMapping TypeName="telephoneModel.Adminstrator">
+        <MappingFragment StoreEntitySet="Adminstrator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckOut1">
+      <EntityTypeMapping TypeName="telephoneModel.CheckOut1">
+        <MappingFragment StoreEntitySet="CheckOut1">
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Credit_Card" ColumnName="Credit_Card" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="telephoneModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="telephoneModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Credit_crad" ColumnName="Credit_crad" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="telephoneModel.OrderDetails">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="ProId" ColumnName="ProId" />
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="telephoneModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="GPRS" ColumnName="GPRS" />
+          <ScalarProperty Name="availabality" ColumnName="availabality" />
+          <ScalarProperty Name="weight_g" ColumnName="weight_g" />
+          <ScalarProperty Name="SIM" ColumnName="SIM" />
+          <ScalarProperty Name="display_type" ColumnName="display_type" />
+          <ScalarProperty Name="display_resolution" ColumnName="display_resolution" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="CPU" ColumnName="CPU" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="memory_card" ColumnName="memory card" />
+          <ScalarProperty Name="internal_memory" ColumnName="internal_memory" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="primary_camera" ColumnName="primary_camera" />
+          <ScalarProperty Name="secondary_camera" ColumnName="secondary_camera" />
+          <ScalarProperty Name="sensors" ColumnName="sensors" />
+          <ScalarProperty Name="battery" ColumnName="battery" />
+          <ScalarProperty Name="colors" ColumnName="colors" />
+          <ScalarProperty Name="approx_price_EGP" ColumnName="approx_price_EGP" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="ProId" ColumnName="ProId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductOfCompany">
+      <EntityTypeMapping TypeName="telephoneModel.ProductOfCompany">
+        <MappingFragment StoreEntitySet="ProductOfCompany">
+          <ScalarProperty Name="Id_Of_Product" ColumnName="Id_Of_Product" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="GPRS" ColumnName="GPRS" />
+          <ScalarProperty Name="availabality" ColumnName="availabality" />
+          <ScalarProperty Name="weight_g" ColumnName="weight_g" />
+          <ScalarProperty Name="SIM" ColumnName="SIM" />
+          <ScalarProperty Name="display_type" ColumnName="display_type" />
+          <ScalarProperty Name="display_resolution" ColumnName="display_resolution" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="CPU" ColumnName="CPU" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="memory_card" ColumnName="memory card" />
+          <ScalarProperty Name="internal_memory" ColumnName="internal_memory" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="primary_camera" ColumnName="primary_camera" />
+          <ScalarProperty Name="secondary_camera" ColumnName="secondary_camera" />
+          <ScalarProperty Name="sensors" ColumnName="sensors" />
+          <ScalarProperty Name="battery" ColumnName="battery" />
+          <ScalarProperty Name="colors" ColumnName="colors" />
+          <ScalarProperty Name="approx_price_EGP" ColumnName="approx_price_EGP" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="telephoneModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Id_Expert" ColumnName="Id_Expert" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id_company" ColumnName="Id_company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="telephoneModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adminstrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id_Company" />
+    </Key>
+    <Property Name="Id_Company" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lname" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Credit_crad" Type="nchar" MaxLength="16" Nullable="false" />
+    <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Test.dbo.Favorite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Customer" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="img">
+    <Key>
+      <PropertyRef Name="img_id" />
+    </Key>
+    <Property Name="img" Type="image" Nullable="false" />
+    <Property Name="img_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Test.dbo.Order_Of_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Order_Of_Product">
+    <Key>
+      <PropertyRef Name="Id_customer" />
+      <PropertyRef Name="Id_Product" />
+      <PropertyRef Name="Count_Of_Product" />
+    </Key>
+    <Property Name="Id_customer" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count_Of_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="phone_dataset2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="brand" Type="nvarchar" MaxLength="450" />
+    <Property Name="model" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPRS" Type="nvarchar" MaxLength="450" />
+    <Property Name="availabality" Type="nvarchar" MaxLength="450" />
+    <Property Name="weight_g" Type="nvarchar" MaxLength="450" />
+    <Property Name="SIM" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_type" Type="nvarchar" MaxLength="450" />
+    <Property Name="display_resolution" Type="nvarchar" MaxLength="450" />
+    <Property Name="OS" Type="nvarchar" MaxLength="450" />
+    <Property Name="CPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="GPU" Type="nvarchar" MaxLength="450" />
+    <Property Name="memory card" Type="nvarchar" MaxLength="450" />
+    <Property Name="internal_memory" Type="nvarchar" MaxLength="450" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="450" />
+    <Property Name="primary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="secondary_camera" Type="nvarchar" MaxLength="450" />
+    <Property Name="sensors" Type="nvarchar" MaxLength="450" />
+    <Property Name="battery" Type="nvarchar" MaxLength="450" />
+    <Property Name="colors" Type="nvarchar" MaxLength="450" />
+    <Property Name="approx_price_EGP" Type="nvarchar" MaxLength="450" />
+    <Property Name="Id_company" Type="int" />
+    <Property Name="img_id" Type="int" />
+    <Property Name="quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id_Expert" />
+    </Key>
+    <Property Name="Id_Expert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Id_company" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Favorite__Id_Cus__1ED998B2">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favorite__Id_Cus__239E4DCF">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favorite__Id_Pro__24927208">
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phone_dataset2">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_cu__20C1E124">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_cu__25869641">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_Pr__267ABA7A">
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phone_dataset2">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phone_dat__Id_co__286302EC">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="phone_dataset2">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phone_dat__img_i__2C3393D0">
+    <End Role="img" Type="Self.img" Multiplicity="0..1" />
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="img">
+        <PropertyRef Name="img_id" />
+      </Principal>
+      <Dependent Role="phone_dataset2">
+        <PropertyRef Name="img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Services__Id_com__21B6055D">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Services__Id_com__29572725">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestModelStoreContainer">
+    <EntitySet Name="Adminstrator" EntityType="Self.Adminstrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="img" EntityType="Self.img" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phone_dataset2" EntityType="Self.phone_dataset2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Favorite" EntityType="Self.Favorite" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Favorite].[Id_Customer] AS [Id_Customer], 
+    [Favorite].[Id_Product] AS [Id_Product]
+    FROM [dbo].[Favorite] AS [Favorite]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Order_Of_Product" EntityType="Self.Order_Of_Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Order_Of_Product].[Id_customer] AS [Id_customer], 
+    [Order_Of_Product].[Id_Product] AS [Id_Product], 
+    [Order_Of_Product].[Count_Of_Product] AS [Count_Of_Product]
+    FROM [dbo].[Order_Of_Product] AS [Order_Of_Product]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Favorite__Id_Cus__1ED998B2" Association="Self.FK__Favorite__Id_Cus__1ED998B2">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favorite__Id_Cus__239E4DCF" Association="Self.FK__Favorite__Id_Cus__239E4DCF">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favorite__Id_Pro__24927208" Association="Self.FK__Favorite__Id_Pro__24927208">
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_cu__20C1E124" Association="Self.FK__Order_Of___Id_cu__20C1E124">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_cu__25869641" Association="Self.FK__Order_Of___Id_cu__25869641">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_Pr__267ABA7A" Association="Self.FK__Order_Of___Id_Pr__267ABA7A">
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phone_dat__Id_co__286302EC" Association="Self.FK__phone_dat__Id_co__286302EC">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phone_dat__img_i__2C3393D0" Association="Self.FK__phone_dat__img_i__2C3393D0">
+      <End Role="img" EntitySet="img" />
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Services__Id_com__21B6055D" Association="Self.FK__Services__Id_com__21B6055D">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Services__Id_com__29572725" Association="Self.FK__Services__Id_com__29572725">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

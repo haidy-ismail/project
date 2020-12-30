@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adminstrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id_Company" />
+    </Key>
+    <Property Name="Id_Company" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="phone_dataset2" Relationship="Self.FK__phone_dat__Id_co__286302EC" FromRole="Company" ToRole="phone_dataset2" />
+    <NavigationProperty Name="Services" Relationship="Self.FK__Services__Id_com__21B6055D" FromRole="Company" ToRole="Services" />
+    <NavigationProperty Name="Services1" Relationship="Self.FK__Services__Id_com__29572725" FromRole="Company" ToRole="Services" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Credit_crad" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK__Favorite__Id_Cus__1ED998B2" FromRole="Customer" ToRole="Favorite" />
+    <NavigationProperty Name="Favorites1" Relationship="Self.FK__Favorite__Id_Cus__239E4DCF" FromRole="Customer" ToRole="Favorite" />
+    <NavigationProperty Name="Order_Of_Product" Relationship="Self.FK__Order_Of___Id_cu__20C1E124" FromRole="Customer" ToRole="Order_Of_Product" />
+    <NavigationProperty Name="Order_Of_Product1" Relationship="Self.FK__Order_Of___Id_cu__25869641" FromRole="Customer" ToRole="Order_Of_Product" />
+  </EntityType>
+  <EntityType Name="img">
+    <Key>
+      <PropertyRef Name="img_id" />
+    </Key>
+    <Property Name="img1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="img_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="phone_dataset2" Relationship="Self.FK__phone_dat__img_i__2C3393D0" FromRole="img" ToRole="phone_dataset2" />
+  </EntityType>
+  <EntityType Name="phone_dataset2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="brand" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPRS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="availabality" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="weight_g" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="SIM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_type" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_resolution" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="OS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="CPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="memory_card" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="internal_memory" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="RAM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="primary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="secondary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="sensors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="battery" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="colors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="approx_price_EGP" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Id_company" Type="Int32" />
+    <Property Name="img_id" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__phone_dat__Id_co__286302EC" FromRole="phone_dataset2" ToRole="Company" />
+    <NavigationProperty Name="img" Relationship="Self.FK__phone_dat__img_i__2C3393D0" FromRole="phone_dataset2" ToRole="img" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK__Favorite__Id_Pro__24927208" FromRole="phone_dataset2" ToRole="Favorite" />
+    <NavigationProperty Name="Order_Of_Product" Relationship="Self.FK__Order_Of___Id_Pr__267ABA7A" FromRole="phone_dataset2" ToRole="Order_Of_Product" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id_Expert" />
+    </Key>
+    <Property Name="Id_Expert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Id_company" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Services__Id_com__21B6055D" FromRole="Services" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="Self.FK__Services__Id_com__29572725" FromRole="Services" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Customer" Type="Int32" Nullable="false" />
+    <Property Name="Id_Product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Favorite__Id_Cus__1ED998B2" FromRole="Favorite" ToRole="Customer" />
+    <NavigationProperty Name="Customer1" Relationship="Self.FK__Favorite__Id_Cus__239E4DCF" FromRole="Favorite" ToRole="Customer" />
+    <NavigationProperty Name="phone_dataset2" Relationship="Self.FK__Favorite__Id_Pro__24927208" FromRole="Favorite" ToRole="phone_dataset2" />
+  </EntityType>
+  <EntityType Name="Order_Of_Product">
+    <Key>
+      <PropertyRef Name="Id_customer" />
+      <PropertyRef Name="Id_Product" />
+      <PropertyRef Name="Count_Of_Product" />
+    </Key>
+    <Property Name="Id_customer" Type="Int32" Nullable="false" />
+    <Property Name="Id_Product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Count_Of_Product" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Order_Of___Id_cu__20C1E124" FromRole="Order_Of_Product" ToRole="Customer" />
+    <NavigationProperty Name="Customer1" Relationship="Self.FK__Order_Of___Id_cu__25869641" FromRole="Order_Of_Product" ToRole="Customer" />
+    <NavigationProperty Name="phone_dataset2" Relationship="Self.FK__Order_Of___Id_Pr__267ABA7A" FromRole="Order_Of_Product" ToRole="phone_dataset2" />
+  </EntityType>
+  <Association Name="FK__phone_dat__Id_co__286302EC">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="phone_dataset2">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Services__Id_com__21B6055D">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Services__Id_com__29572725">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favorite__Id_Cus__1ED998B2">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favorite__Id_Cus__239E4DCF">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_cu__20C1E124">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_cu__25869641">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__phone_dat__img_i__2C3393D0">
+    <End Role="img" Type="Self.img" Multiplicity="0..1" />
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="img">
+        <PropertyRef Name="img_id" />
+      </Principal>
+      <Dependent Role="phone_dataset2">
+        <PropertyRef Name="img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favorite__Id_Pro__24927208">
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phone_dataset2">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Of___Id_Pr__267ABA7A">
+    <End Role="phone_dataset2" Type="Self.phone_dataset2" Multiplicity="1" />
+    <End Role="Order_Of_Product" Type="Self.Order_Of_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phone_dataset2">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order_Of_Product">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adminstrators" EntityType="Self.Adminstrator" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="imgs" EntityType="Self.img" />
+    <EntitySet Name="phone_dataset2" EntityType="Self.phone_dataset2" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+    <EntitySet Name="Order_Of_Product" EntityType="Self.Order_Of_Product" />
+    <AssociationSet Name="FK__phone_dat__Id_co__286302EC" Association="Self.FK__phone_dat__Id_co__286302EC">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Services__Id_com__21B6055D" Association="Self.FK__Services__Id_com__21B6055D">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Services__Id_com__29572725" Association="Self.FK__Services__Id_com__29572725">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favorite__Id_Cus__1ED998B2" Association="Self.FK__Favorite__Id_Cus__1ED998B2">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favorite__Id_Cus__239E4DCF" Association="Self.FK__Favorite__Id_Cus__239E4DCF">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_cu__20C1E124" Association="Self.FK__Order_Of___Id_cu__20C1E124">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_cu__25869641" Association="Self.FK__Order_Of___Id_cu__25869641">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__phone_dat__img_i__2C3393D0" Association="Self.FK__phone_dat__img_i__2C3393D0">
+      <End Role="img" EntitySet="imgs" />
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favorite__Id_Pro__24927208" Association="Self.FK__Favorite__Id_Pro__24927208">
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Of___Id_Pr__267ABA7A" Association="Self.FK__Order_Of___Id_Pr__267ABA7A">
+      <End Role="phone_dataset2" EntitySet="phone_dataset2" />
+      <End Role="Order_Of_Product" EntitySet="Order_Of_Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

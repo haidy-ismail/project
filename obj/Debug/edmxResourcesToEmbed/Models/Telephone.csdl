@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="telephoneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adminstrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckOut1">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ID_Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Credit_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_CheckOut1" FromRole="CheckOut1" ToRole="OrderDetails" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id_Company" />
+    </Key>
+    <Property Name="Id_Company" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Services" Relationship="Self.FK__Services__Id_com__1FCDBCEB" FromRole="Company" ToRole="Services" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Credit_crad" Type="String" MaxLength="16" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="ProId" />
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ProId" Type="Int32" Nullable="false" />
+    <Property Name="ID_Order" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CheckOut1" Relationship="Self.FK_OrderDetails_CheckOut1" FromRole="OrderDetails" ToRole="CheckOut1" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Product" FromRole="OrderDetails" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProId" />
+    </Key>
+    <Property Name="brand" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPRS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="availabality" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="weight_g" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="SIM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_type" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_resolution" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="OS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="CPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="memory_card" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="internal_memory" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="RAM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="primary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="secondary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="sensors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="battery" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="colors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="approx_price_EGP" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Product" FromRole="Product" ToRole="OrderDetails" />
+  </EntityType>
+  <EntityType Name="ProductOfCompany">
+    <Key>
+      <PropertyRef Name="Id_Of_Product" />
+    </Key>
+    <Property Name="Id_Of_Product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="brand" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPRS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="availabality" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="weight_g" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="SIM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_type" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="display_resolution" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="OS" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="CPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="GPU" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="memory_card" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="internal_memory" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="RAM" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="primary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="secondary_camera" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="sensors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="battery" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="colors" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="approx_price_EGP" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id_Expert" />
+    </Key>
+    <Property Name="Id_Expert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Id_company" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Services__Id_com__1FCDBCEB" FromRole="Services" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_OrderDetails_CheckOut1">
+    <End Role="CheckOut1" Type="Self.CheckOut1" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckOut1">
+        <PropertyRef Name="ID_Order" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ID_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Services__Id_com__1FCDBCEB">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Services" Type="Self.Services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id_Company" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="Id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProId" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="telephoneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adminstrator" EntityType="Self.Adminstrator" />
+    <EntitySet Name="CheckOut1" EntityType="Self.CheckOut1" />
+    <EntitySet Name="Company" EntityType="Self.Company" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="ProductOfCompany" EntityType="Self.ProductOfCompany" />
+    <EntitySet Name="Services" EntityType="Self.Services" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_OrderDetails_CheckOut1" Association="Self.FK_OrderDetails_CheckOut1">
+      <End Role="CheckOut1" EntitySet="CheckOut1" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Services__Id_com__1FCDBCEB" Association="Self.FK__Services__Id_com__1FCDBCEB">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Services" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Product" Association="Self.FK_OrderDetails_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
