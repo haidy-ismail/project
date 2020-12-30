@@ -1,0 +1,171 @@
+﻿@model Telephone.Models.CheckOut1
+
+@{
+    ViewBag.Title = "Buying";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Producta Checkout</h2>
+                        <p>Home <span>-</span> Shop Single</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@using (Html.BeginForm("Buying", "ShoppingCart", FormMethod.Post))
+{
+
+    <section class="checkout_area padding_top">
+        <div class="container">
+            <div class="returning_customer">
+                <h2>
+                    <p>
+                        If you have shopped with us before, please enter your details in the
+                        boxes below. If you are a new customer, please proceed to the
+                        Billing & Shipping section.
+                    </p>
+                </h2>
+            </div>
+            <div class="billing_details">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Billing Details</h3>
+                        <form class="row contact_form" method="post">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.OrderName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.OrderName, new { name = "OrderName", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.OrderName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Fname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Fname, new { name = "Fname", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Lname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Lname, new { name = "Lname", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Lname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Phone, new { name = "Phone", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email, new { name = "Email", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Address, new { name = "Address", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.City, new { name = "City", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Credit_Card, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Credit_Card, new { name = "Credit_Card", htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Credit_Card, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                   
+                        <div class="col-lg-4">
+                            <div class="order_box">
+                                <h2>Your Order</h2>
+
+                                <ul class="list">
+                                    <li>
+                                        Product
+                                        <span>Total</span>
+
+                                    </li>
+
+                                    <li>
+
+
+                                        <span class="middle"></span>
+                                        <span class="last"></span>
+
+                                    </li>
+
+                                </ul>
+                                <ul class="list list_2">
+                                    <li>
+
+                                        Subtotal
+                                        <span></span>
+
+                                    </li>
+                                    <li>
+
+                                        Shipping
+                                        <span>Flat rate: $50.00</span>
+
+                                    </li>
+                                    <li>
+
+                                        Total
+                                        <span></span>
+
+                                    </li>
+                                </ul>
+
+
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option4" name="selector" required />
+                                    <label for="f-option4">I’ve read and accept the </label>
+                                     @Html.ActionLink("confirmation of order ", "Confirmatoin","ShoppingCart",new {Model.ID_Order }) 
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Proceed to Paypal" class="btn_3" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+             
+                </div>
+            </div>
+        </div>
+    </section>
+}

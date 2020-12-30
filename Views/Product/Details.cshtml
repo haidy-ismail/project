@@ -1,0 +1,168 @@
+﻿@model Telephone.Models.Product
+@{
+    ViewBag.Title = "Details";
+   
+        Layout = "~/Views/Shared/_MyLayout.cshtml";
+   }
+    
+}
+@{string imgpath = "~/MyImges/images/img (" + Model.ProId + ").jpg"; }
+
+
+<!--================Single Product Area =================-->
+<div class="product_image_area section_padding">
+    <div class="container">
+        <div class="row s_product_inner justify-content-between">
+            <div class="col-lg-6 col-xl-7">
+
+                    <div id="vertical">
+                        <div class="banner_img d-none d-lg-block">
+                            <img src="@Url.Content(imgpath)" alt="">
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+                <div class="s_product_text">
+                    <h2>@Html.DisplayFor(p => p.brand)</h2>
+                    <h3>@Html.DisplayFor(p => p.model)</h3>
+                    <h2>@Html.DisplayFor(p => p.approx_price_EGP) EGP</h2>
+                    <ul class="list">
+                        <li>
+                            <a class="active" href="#">
+                                <span>Brand </span> : @Html.DisplayFor(p => p.brand)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"> <span>Availibility</span> : >@Html.DisplayFor(p => p.availabality)</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="card_area d-flex justify-content-between align-items-center">
+                        
+                        @if (Session["user"] != null)
+                        {
+                            <a href=@Url.Content("/ShoppingCart/Index/Index") class="btn_3">add to cart</a>
+                            <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+                        }
+                        else
+                        {
+                            <a href=@Url.Content("/Customer/Login/Login") class="btn_3">add to cart</a>
+                            <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="product_description_area">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                   aria-selected="false">Specification</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h5>OS</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.OS)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>RAM</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.RAM)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>CPU</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.CPU)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Primary Camera</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.primary_camera)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Secondary Camera</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.secondary_camera)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>GPRS</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.GPRS)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>GPU</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.GPU)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Internal Memory</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.internal_memory)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Weight</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.weight_g)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Sensors</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.sensors)</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>SIM</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(p => p.SIM)</h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,133 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Telephone.Models.CheckOut1>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Details of orders</h2>
+                        <p>Home <span>-</span> ShopPing ordrers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="checkout_area padding_top">
+    
+        <table class="table">
+            <tr>
+                <th>
+                    ID_Order
+                </th>
+                <th>
+                    OrderName
+                </th>
+                <th>
+                    OrderDate
+                </th>
+                <th>
+                    PaymentType
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Fname
+                </th>
+                <th>
+                    Lname
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Credit_Card
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_Order)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Credit_Card)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Detail", "Detail", new { id = item.ID_Order }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Order })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        
+    </section>
+        <div class="col-lg-12">
+
+            <div class="pageination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            @Html.PagedListPager(Model, pageNum => Url.Action("Index", new { pageNum, option = Request.QueryString["option"], search = Request.QueryString["search"] }))
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+

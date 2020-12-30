@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<Telephone.Models.Product>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="feature_part padding_top">
+    <div class="container">
+        @if (Model.Count() == 0)
+        {
+            <h2>The item you are looking for doesn't exist</h2>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product_list_slider owl-carousel">
+                        <div class="single_product_list_slider">
+                            <div class="row align-items-center justify-content-between">
+                                @foreach (var item in Model)
+                                {<div class="col-lg-3 col-sm-6">
+                                        <div class="single_product_item">
+                                            @{string imgpath = "~/MyImges/images/img (" + @item.ProId + ").jpg"; }
+                                            <img src="@Url.Content(imgpath)" alt="">
+
+                                            <div class="single_product_text">
+                                                <h4>@Html.DisplayFor(modelitem => @item.model) </h4>
+                                                <h4><a href="@Url.Action("Details","Product",new {id=item.ProId } )">Details</a></h4>
+                                                <h3>@Html.DisplayFor(modelitem => @item.approx_price_EGP) EGP</h3>
+                                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,86 @@
+﻿@model Telephone.Models.Customer
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<section class="login_part padding_top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center">
+                    <div class="login_part_text_iner">
+                        <h2>If you have Account , you Can login !</h2>
+                       
+                        <a class="btn_3" href="/Customer/Login/Login">Login now</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form">
+                    <div class="login_part_form_iner">
+                        <h3>
+                            Welcome  <br>
+                            Create new Account
+                        </h3>
+                        <form class="row contact_form" method="post" novalidate="novalidate">
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Fname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Fname, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Fname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Lname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Lname, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Lname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Credit_crad, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Credit_crad, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Credit_crad, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="col-md-12 form-group p_star">
+                                @Html.LabelFor(m => m.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                               
+                                <button type="submit" value="submit" class="btn_3">
+                                    Register
+                                </button>
+                               
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,120 @@
+﻿@using Telephone.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<head>
+
+    <script src="~/Content/js/jquery-1.12.1.min.js"></script>
+</head>
+
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Cart Products</h2>
+                        <p>Home <span>-</span>Cart Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Cart Area =================-->
+
+@{
+    if (Session["Cart"] != null)
+    {
+        using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+        {
+
+            <section class="cart_area padding_top">
+                <div class="container">
+                    <div class="cart_inner">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ProductImage</th>
+                                        <th scope="col">ProductName</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var cart in (List<Cart>)Session["Cart"])
+                                    {
+                                        <tr>
+                                            <td>
+                                                @{string imgpath = "~/MyImges/images/img (" + @cart.product.ProId + ").jpg"; }
+                                                <img src="@Url.Content(imgpath)" alt="">
+                                            </td>
+                                            <td>@cart.product.model</td>
+                                            <td>@cart.product.approx_price_EGP</td>
+                                            <td>
+                                                <input class="input-number" type="text" name="quantity" id="quantity" value="@cart.quantity">
+                                                &nbsp; <span id="errmsg"></span>
+                                            </td>
+                                            <td>@(string.Format("{0:N0}", int.Parse(cart.product.approx_price_EGP) * cart.quantity))</td>
+                                            <td>@Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = cart.product.ProId }, new { onclick = "return confirm('Are You Sure You Want To Delete This?');" })</td>
+                                        </tr>
+                                    }
+
+                                    <tr>
+
+                                        <td colspan="3">Total Of All Products</td>
+                                        <td>
+                                            @{
+
+                                                List<Cart> tmep = (List<Cart>)Session["Cart"];
+                                                var total = string.Format("{0:N0}", tmep.Sum(x => x.quantity * int.Parse(x.product.approx_price_EGP)));
+                                            }
+                                            @total $
+                                        </td>
+                                    </tr>
+                                    <tr class="bottom_button">
+                                        <td>
+                                            <a class="btn_1" href="@Url.Action("UpdateCart", "ShoppingCart")">Update Cart</a>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                            <div class="checkout_btn_inner float-right">
+                                <a class="btn_1" href="@Url.Action("Index1", "Product")">Continue Shopping</a>
+                                <a class="btn_1 checkout_btn_1" href="@Url.Action("Buying", "ShoppingCart")">Proceed to checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    }
+    else
+    {
+
+        <h4> No items in Your Cart !!</h4>
+    }
+}
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $("#quantity").keypress(function (e){
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57))
+            {
+
+                $("#errmsg").html("Enter Digits only !").show().fadeOut("slow");
+                return false;
+            }
+        });
+    });
+
+</script>

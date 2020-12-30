@@ -1,0 +1,110 @@
+﻿@model Telephone.Models.CheckOut1
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Details of order</h2>
+                        <p>Home <span>-</span> Shop ordrer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="checkout_area padding_top">
+    <div class="container">
+        <form>
+            <div>
+                <h4>Order : @Html.DisplayFor(m => m.ID_Order)</h4>
+                <hr />
+                <dl class="dl-horizontal">
+
+
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OrderName) : @Html.DisplayFor(model => model.OrderName)
+                    </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OrderDate) :  @Html.DisplayFor(model => model.OrderDate)
+                    </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fname)  : @Html.DisplayFor(model => model.Fname)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Lname) : @Html.DisplayFor(model => model.Lname)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Phone) :  @Html.DisplayFor(model => model.Phone)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email) :  @Html.DisplayFor(model => model.Email)
+                    </dt>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address) :  @Html.DisplayFor(model => model.Address)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.City) :  @Html.DisplayFor(model => model.City)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Credit_Card) :  @Html.DisplayFor(model => model.Credit_Card)
+                    </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PaymentType) :  @Html.DisplayFor(model => model.PaymentType)
+                    </dt>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status) :  @Html.DisplayFor(model => model.Status)
+                    </dt>
+
+
+
+
+                </dl>
+            </div>
+            <br />
+            <table class="table">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Qunatity</th>
+                    <th>Price</th>
+
+                </tr>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@item.Product.model</td>
+                        <td>@item.Quantity</td>
+                        <td>$@(string.Format("{0:N0}", item.Price))</td>
+                    </tr>
+
+                }
+
+
+
+            </table>
+
+        </form>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+
+        <a class="btn_3" href="@Url.Action("Index", "Order")">Back TO Orders</a>
+    </div>
+</section>
+       
